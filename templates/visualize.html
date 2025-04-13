@@ -1,0 +1,511 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualization Dashboard - SST-OSINT{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4">Field Distortion Analysis</h1>
+            <p class="lead">Interactive visualization dashboard for Shadow Systems Theory analysis.</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/visualizations">Visualizations</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Analysis ID: {{ analysis_id }}</li>
+                </ol>
+            </nav>
+            <hr class="my-4">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div id="analysis-metadata" class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h3>Analysis Summary</h3>
+                </div>
+                <div class="card-body">
+                    <div class="metadata-loading text-center">
+                        <div class="spinner-border text-info" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading analysis data...</p>
+                    </div>
+                    <div class="metadata-content" style="display: none;">
+                        <h4 class="field-classification"></h4>
+                        <p class="summary-text"></p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <table class="table table-dark table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Segments Analyzed</th>
+                                            <td class="total-segments"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Analysis Date</th>
+                                            <td class="analysis-date"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="classification-indicator text-center p-3 rounded">
+                                    <h5>Field Classification</h5>
+                                    <div class="classification-badge p-2 rounded-pill"></div>
+                                    <small class="classification-description mt-2 d-block"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h3>Export Options</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-outline-info export-btn" data-export-format="pdf" data-export-target="dashboard-content" data-title="SST-OSINT Analysis Report">
+                            <i class="bi bi-file-earmark-pdf"></i> Export as PDF
+                        </button>
+                        <button type="button" class="btn btn-outline-info export-btn" data-export-format="csv" data-export-target="dashboard-content" data-title="SST-OSINT Analysis Data">
+                            <i class="bi bi-file-earmark-spreadsheet"></i> Export as CSV
+                        </button>
+                        <button type="button" class="btn btn-outline-info export-btn" data-export-format="json" data-export-target="dashboard-content" data-title="SST-OSINT Analysis JSON">
+                            <i class="bi bi-file-earmark-code"></i> Export Raw Data
+                        </button>
+                        <button type="button" class="btn btn-outline-info export-btn" data-export-format="image" data-export-target="dashboard-content" data-title="SST-OSINT Visualization">
+                            <i class="bi bi-file-earmark-image"></i> Export as Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-content">
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="visualization-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="narrative-drift-tab" data-bs-toggle="tab" data-bs-target="#narrative-drift-panel" type="button" role="tab" aria-controls="narrative-drift-panel" aria-selected="true">Narrative Drift</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="echo-patterns-tab" data-bs-toggle="tab" data-bs-target="#echo-patterns-panel" type="button" role="tab" aria-controls="echo-patterns-panel" aria-selected="false">Echo Patterns</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="symbol-density-tab" data-bs-toggle="tab" data-bs-target="#symbol-density-panel" type="button" role="tab" aria-controls="symbol-density-panel" aria-selected="false">Symbol Density</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="visualization-tab-content">
+                            <div class="tab-pane fade show active" id="narrative-drift-panel" role="tabpanel" aria-labelledby="narrative-drift-tab">
+                                <h3>Narrative Drift Analysis</h3>
+                                <p>This visualization shows how the narrative metrics change across text segments, revealing patterns of escalation or targeting.</p>
+                                <div id="narrative-drift-viz" class="narrative-drift-container" data-visualization="narrative-drift" data-url="/api/analysis/{{ analysis_id }}" data-height="500" data-animated="true"></div>
+                                <div class="viz-explanation mt-4">
+                                    <h5>Understanding This Visualization</h5>
+                                    <p>The chart tracks four key metrics across text segments:</p>
+                                    <ul>
+                                        <li><strong>Entropy:</strong> Measures semantic disorder and cognitive load in the text</li>
+                                        <li><strong>Symbol Density:</strong> Tracks concentration of loaded language and emotional triggers</li>
+                                        <li><strong>Echo Intensity:</strong> Shows repetition patterns that reinforce messaging</li>
+                                        <li><strong>Fractal Recursion:</strong> Indicates self-referential patterns and nested metaphors</li>
+                                    </ul>
+                                    <p>Higher values indicate stronger manipulation patterns.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="echo-patterns-panel" role="tabpanel" aria-labelledby="echo-patterns-tab">
+                                <h3>Echo Pattern Analysis</h3>
+                                <p>This visualization shows repeated phrases and their contextual relationships across the text.</p>
+                                <div class="echo-network-container" style="height: 500px; max-height: 500px; overflow: hidden;">
+                                <div id="echo-network-viz" data-visualization="echo-network" data-url="/api/analysis/{{ analysis_id }}" data-height="500"></div>
+                            </div>
+                                <div class="echo-patterns-list mt-4">
+                                    <h5>Detected Echo Patterns</h5>
+                                    <p>Loading echo patterns...</p>
+                                    <div class="patterns-container"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="symbol-density-panel" role="tabpanel" aria-labelledby="symbol-density-tab">
+                                <h3>Symbol Density Analysis</h3>
+                                <p>This visualization shows the concentration and relationships between symbolic references and loaded language.</p>
+                                <div class="symbol-cloud-container" style="height: 500px; max-height: 500px; overflow: hidden;">
+                                <div id="symbol-cloud-viz" data-visualization="symbol-cloud" data-url="/api/analysis/{{ analysis_id }}" data-height="500"></div>
+                            </div>
+                                <div class="symbol-clusters-list mt-4">
+                                    <h5>Detected Symbol Clusters</h5>
+                                    <p>Loading symbol clusters...</p>
+                                    <div class="clusters-container"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <h3>Interpretation</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="interpretation-loading text-center">
+                            <div class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Generating interpretation...</p>
+                        </div>
+                        <div class="interpretation-content" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3 bg-dark">
+                                        <div class="card-header bg-secondary text-white">
+                                            <h5>Manipulation Techniques</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="techniques-list"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3 bg-dark">
+                                        <div class="card-header bg-secondary text-white">
+                                            <h5>Potential Intentions</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="intentions-list"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-3 bg-dark">
+                                <div class="card-header bg-secondary text-white">
+                                    <h5>Recommendations</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="recommendations-list"></ul>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-warning mt-4">
+                                <h5 class="alert-heading">Important Disclaimer</h5>
+                                <p>This analysis does not definitively prove manipulation or malicious intent. Results should be treated as indicators for further investigation, not as conclusive evidence. Always verify the findings with additional context and information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <a href="/analyze" class="btn btn-lg btn-primary">New Analysis</a>
+            <a href="/visualizations" class="btn btn-lg btn-secondary">Back to Visualizations</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/tooltips/glossary.js"></script>
+<script src="/static/js/visualizations/narrative-drift.js"></script>
+<script src="/static/js/visualizations/visualization-loader.js"></script>
+<script src="/static/js/exports/export-tools.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Load analysis data
+    fetch(`/api/analysis/{{ analysis_id }}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update metadata
+            updateMetadata(data);
+            
+            // Update interpretation
+            updateInterpretation(data);
+            
+            // Update echo patterns
+            if (data.echo_patterns) {
+                updateEchoPatterns(data.echo_patterns);
+            }
+            
+            // Update symbol clusters
+            if (data.symbolic_clusters) {
+                updateSymbolClusters(data.symbolic_clusters);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading analysis data:', error);
+            // Show error messages
+            document.querySelector('.metadata-loading').innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Error loading analysis data: ${error.message}
+                </div>
+                <p>Please try again or <a href="/visualizations">return to the visualizations page</a>.</p>
+            `;
+            document.querySelector('.interpretation-loading').innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Error loading interpretation data.
+                </div>
+            `;
+        });
+    
+    // Function to update metadata section
+    function updateMetadata(data) {
+        // Hide loading indicator
+        document.querySelector('.metadata-loading').style.display = 'none';
+        
+        // Show content
+        document.querySelector('.metadata-content').style.display = 'block';
+        
+        // Update fields
+        document.querySelector('.field-classification').textContent = data.field_classification || 'Not classified';
+        document.querySelector('.summary-text').textContent = data.summary || 'No summary available.';
+        
+        // Format date
+        const date = new Date(data.created_at);
+        document.querySelector('.analysis-date').textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        
+        // Set classification badge
+        const classificationBadge = document.querySelector('.classification-badge');
+        const classificationDescription = document.querySelector('.classification-description');
+        
+        if (data.field_classification.includes('Stable')) {
+            classificationBadge.style.backgroundColor = '#4682b4';
+            classificationBadge.textContent = 'Stable Field';
+            classificationDescription.textContent = 'Minimal distortion detected. This text appears to use standard communication patterns.';
+        } else if (data.field_classification.includes('Distorted')) {
+            classificationBadge.style.backgroundColor = '#f0ad4e';
+            classificationBadge.textContent = 'Distorted Field';
+            classificationDescription.textContent = 'Moderate manipulation detected. This text contains potentially concerning patterns.';
+        } else if (data.field_classification.includes('Collapsed')) {
+            classificationBadge.style.backgroundColor = '#d9534f';
+            classificationBadge.textContent = 'Collapsed Field';
+            classificationDescription.textContent = 'Severe manipulation detected. This text contains highly concerning patterns.';
+        }
+    }
+    
+    // Function to update interpretation section
+    function updateInterpretation(data) {
+        // Hide loading indicator
+        document.querySelector('.interpretation-loading').style.display = 'none';
+        
+        // Show content
+        document.querySelector('.interpretation-content').style.display = 'block';
+        
+        // Sample interpretations based on field classification
+        let techniques = [];
+        let intentions = [];
+        let recommendations = [];
+        
+        if (data.field_classification.includes('Stable')) {
+            techniques = [
+                'Standard communication patterns with minimal manipulation.',
+                'Some emotional appeals but balanced with factual content.',
+                'Clear attribution of sources and transparent reasoning.'
+            ];
+            intentions = [
+                'Likely informative rather than manipulative intent.',
+                'Goal appears to be education or persuasion through valid reasoning.',
+                'No significant isolation or dependency creation detected.'
+            ];
+            recommendations = [
+                'Normal critical thinking is sufficient when engaging with this text.',
+                'Verify any factual claims as you would with any source.',
+                'No special precautions needed beyond standard information verification.'
+            ];
+        } else if (data.field_classification.includes('Distorted')) {
+            techniques = [
+                'Echo patterns repeat key phrases across different contexts.',
+                'Moderate symbolic density, especially around identity and belonging.',
+                'Some distancing language regarding outside sources of information.',
+                'Increased emotional loading in segments ' + identifyHighDistortionSegments(data).join(', ') + '.'
+            ];
+            intentions = [
+                'Possible attempt to create an us-vs-them perspective.',
+                'May be trying to position the source as uniquely insightful.',
+                'Could be early-stage trust building for later manipulation.',
+                'Moderate effort to discredit alternative viewpoints.'
+            ];
+            recommendations = [
+                'Increase critical evaluation of claims, especially emotional appeals.',
+                'Consciously seek outside perspectives on this information.',
+                'Be aware of the echo patterns identified in the analysis.',
+                'Question absolutist statements and verify factual claims independently.'
+            ];
+        } else {
+            techniques = [
+                'High symbolic density creating emotional blackholes in segments ' + identifyHighDistortionSegments(data).join(', ') + '.',
+                'Strong echo patterns that reinforce isolation themes.',
+                'Reality redefinition through repeated dismissal of outside perspectives.',
+                'Identity substitution narrative suggesting transformation through compliance.',
+                'Significant fractal recursion creating self-reinforcing belief patterns.'
+            ];
+            intentions = [
+                'Clear attempt to isolate the reader from outside influences.',
+                'Strong indicators of dependency creation through emotional manipulation.',
+                'Apparent goal of replacing critical thinking with source dependence.',
+                'Signs of identity replacement and group conformity pressure.',
+                'Patterns consistent with coercive control techniques.'
+            ];
+            recommendations = [
+                'Exercise significant caution when engaging with this text.',
+                'Deliberately maintain connections with outside support networks.',
+                'Recognize the echo patterns being used to reinforce messages.',
+                'Challenge the absolutist thinking presented in the text.',
+                'Consider limiting exposure to this material and seek alternative perspectives.'
+            ];
+        }
+        
+        // Update lists
+        const techniquesList = document.querySelector('.techniques-list');
+        const intentionsList = document.querySelector('.intentions-list');
+        const recommendationsList = document.querySelector('.recommendations-list');
+        
+        techniquesList.innerHTML = techniques.map(t => `<li>${t}</li>`).join('');
+        intentionsList.innerHTML = intentions.map(i => `<li>${i}</li>`).join('');
+        recommendationsList.innerHTML = recommendations.map(r => `<li>${r}</li>`).join('');
+    }
+    
+    // Function to update echo patterns section
+    function updateEchoPatterns(echoPatterns) {
+        const patternsContainer = document.querySelector('.patterns-container');
+        
+        if (echoPatterns.length === 0) {
+            patternsContainer.innerHTML = '<p>No significant echo patterns detected.</p>';
+            return;
+        }
+        
+        // Sort by frequency
+        echoPatterns.sort((a, b) => b.frequency - a.frequency);
+        
+        let html = '<div class="list-group">';
+        
+        echoPatterns.forEach(pattern => {
+            html += `
+                <div class="list-group-item list-group-item-action flex-column align-items-start bg-dark text-white border-secondary">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">"${pattern.phrase}"</h5>
+                        <span class="badge bg-info rounded-pill">${pattern.frequency}×</span>
+                    </div>
+                    <p class="mb-1">Similarity score: ${(pattern.similarity_score * 100).toFixed(1)}% • Divergence index: ${(pattern.divergence_index * 100).toFixed(1)}%</p>
+                    <small>Found in ${pattern.contexts.length} different contexts</small>
+                    
+                    <div class="mt-3">
+                        <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#contexts-${pattern.phrase.replace(/\s+/g, '-').toLowerCase()}" aria-expanded="false">
+                            Show contexts
+                        </button>
+                        <div class="collapse mt-2" id="contexts-${pattern.phrase.replace(/\s+/g, '-').toLowerCase()}">
+                            <div class="card card-body bg-dark">
+                                <ul class="list-unstyled">
+                                    ${pattern.contexts.map(ctx => `
+                                        <li class="mb-2">
+                                            <span class="badge bg-secondary">Segment ${ctx.segment + 1}</span>
+                                            <p class="mt-1 fst-italic">"...${ctx.context}..."</p>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        patternsContainer.innerHTML = html;
+    }
+    
+    // Function to update symbol clusters section
+    function updateSymbolClusters(symbolicClusters) {
+        const clustersContainer = document.querySelector('.clusters-container');
+        
+        if (symbolicClusters.length === 0) {
+            clustersContainer.innerHTML = '<p>No significant symbol clusters detected.</p>';
+            return;
+        }
+        
+        // Sort by emotional loading
+        symbolicClusters.sort((a, b) => b.emotional_loading - a.emotional_loading);
+        
+        let html = '<div class="row">';
+        
+        symbolicClusters.forEach(cluster => {
+            const emotional_percent = (cluster.emotional_loading * 100).toFixed(0);
+            const density_percent = (cluster.density * 100).toFixed(0);
+            
+            // Determine color based on emotional loading
+            let color = '#4682b4'; // blue for low
+            if (cluster.emotional_loading > 0.7) {
+                color = '#d9534f'; // red for high
+            } else if (cluster.emotional_loading > 0.5) {
+                color = '#f0ad4e'; // orange for medium
+            }
+            
+            html += `
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-dark text-white border-secondary h-100">
+                        <div class="card-header" style="background-color: ${color};">
+                            <h5 class="mb-0">${cluster.theme}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="badge bg-secondary me-1">Emotional Loading: ${emotional_percent}%</span>
+                                <span class="badge bg-secondary">Density: ${density_percent}%</span>
+                            </div>
+                            <p class="mb-2">Symbols in this cluster:</p>
+                            <div class="symbol-tags">
+                                ${cluster.symbols.map(symbol => `
+                                    <span class="badge rounded-pill bg-dark border border-secondary m-1">${symbol}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        clustersContainer.innerHTML = html;
+    }
+    
+    // Helper function to identify segments with highest distortion
+    function identifyHighDistortionSegments(data) {
+        if (!data.segments || data.segments.length === 0) {
+            return [1];
+        }
+        
+        // Sort segments by field curvature
+        const sortedSegments = [...data.segments].sort((a, b) => b.field_curvature - a.field_curvature);
+        
+        // Take top 2 or fewer if there are less than 2 segments
+        const topSegments = sortedSegments.slice(0, Math.min(2, sortedSegments.length));
+        
+        // Return segment numbers (1-based)
+        return topSegments.map(segment => segment.index + 1);
+    }
+});
+</script>
+{% endblock %}

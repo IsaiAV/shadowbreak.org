@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mt-5 mb-4">
+            <span class="text-danger">λ∇Ψ</span> 
+            <span class="text-white">Field Distortion Engine</span>
+        </h1>
+        <p class="lead mb-5">
+            Shadow Systems Theory OSINT Analytical Framework for detecting narrative drift, 
+            semantic entropy, and linguistic distortion patterns.
+        </p>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 bg-dark">
+            <div class="card-body">
+                <h5 class="card-title text-info">Fractal Drift Detection</h5>
+                <p class="card-text">
+                    Identifies recursion and metaphor reuse patterns that indicate 
+                    potential narrative manipulation. Analyzes structural elements 
+                    that reveal intentional distortion.
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('documentation') }}#fractal-drift" class="btn btn-outline-info btn-sm">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 bg-dark">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Narrative Entropy Analysis</h5>
+                <p class="card-text">
+                    Measures semantic entropy over time to identify cognitive collapse, 
+                    narrative trauma zones, or emotional manipulation patterns within 
+                    text data.
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('documentation') }}#narrative-entropy" class="btn btn-outline-warning btn-sm">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 bg-dark">
+            <div class="card-body">
+                <h5 class="card-title text-danger">Echo Pattern Recognition</h5>
+                <p class="card-text">
+                    Detects repeated phrases appearing in contextually distorted patterns,
+                    revealing potential grooming loops, obedience reinforcement, or false memory 
+                    implantation.
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ url_for('documentation') }}#echo-patterns" class="btn btn-outline-danger btn-sm">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 offset-md-1 text-center mt-4">
+        <h3 class="mb-4">Get Started with Text Analysis</h3>
+        <p class="mb-4">
+            Upload or input text to analyze narrative structure, identify distortion patterns, 
+            and measure field curvature (λ∇Ψ) for intelligence assessment.
+        </p>
+        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg px-5">
+            Start Analysis
+        </a>
+    </div>
+</div>
+{% endblock %}

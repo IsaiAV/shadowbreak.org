@@ -1,0 +1,69 @@
+/* Main site-wide styles */
+
+/* Import accessibility CSS */
+@import url('a11y.css');
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* Symbol styling */
+.symbol {
+    font-weight: bold;
+}
+
+/* Card styling */
+.card {
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Analysis results styling */
+.analysis-result {
+    border-left: 4px solid var(--bs-info);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.analysis-metric {
+    font-weight: bold;
+}
+
+.entropy-high {
+    color: var(--bs-danger);
+}
+
+.entropy-medium {
+    color: var(--bs-warning);
+}
+
+.entropy-low {
+    color: var(--bs-success);
+}
+
+/* Lambda symbol styling */
+.lambda-symbol {
+    color: var(--bs-danger);
+    font-weight: bold;
+}
+
+/* Make images responsive */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improved dropdown accessibility */
+.dropdown-toggle:focus + .dropdown-menu {
+    display: block;
+}

@@ -1,0 +1,159 @@
+{
+  "id": "sample-analysis-001",
+  "created_at": "2025-04-05T14:32:10Z",
+  "field_classification": "Distorted Field",
+  "field_curvature": 0.621,
+  "total_segments": 5,
+  "summary": "This text shows moderate narrative manipulation with spikes in symbolic density. The highest distortion appears in segments 3-4, with recurring metaphors around control and identity.",
+  "segments": [
+    {
+      "index": 0,
+      "text_start": 0,
+      "text_end": 245,
+      "preview": "The path forward is clear, as it has always been. Trust the process, and remember that every journey begins with loyalty to the group. We are simply showing you reality as it truly is.",
+      "classification": "Stable Field",
+      "field_curvature": 0.312,
+      "entropy": 0.256,
+      "symbolic_density": 0.178,
+      "echo_intensity": 0.201,
+      "fractal_recursion": 0.352
+    },
+    {
+      "index": 1,
+      "text_start": 246,
+      "text_end": 512,
+      "preview": "Your previous understanding was incomplete, perhaps even deceptive. Only through our framework can you see beyond the illusions. Trust the process, and you'll find freedom from doubt.",
+      "classification": "Stable Field",
+      "field_curvature": 0.389,
+      "entropy": 0.321,
+      "symbolic_density": 0.298,
+      "echo_intensity": 0.345,
+      "fractal_recursion": 0.427
+    },
+    {
+      "index": 2,
+      "text_start": 513,
+      "text_end": 798,
+      "preview": "The world outside is full of falsehoods designed to keep you from true understanding. Trust the process. Everything that challenges our perspective is simply a test of your commitment.",
+      "classification": "Distorted Field",
+      "field_curvature": 0.745,
+      "entropy": 0.654,
+      "symbolic_density": 0.621,
+      "echo_intensity": 0.598,
+      "fractal_recursion": 0.701
+    },
+    {
+      "index": 3,
+      "text_start": 799,
+      "text_end": 1105,
+      "preview": "Your family doesn't understand what we've shown you. Their confusion is natural, but unfortunate. Trust the process. Soon they'll see how you've grown, or they weren't meant for this journey.",
+      "classification": "Collapsed Field",
+      "field_curvature": 0.987,
+      "entropy": 0.812,
+      "symbolic_density": 0.889,
+      "echo_intensity": 0.765,
+      "fractal_recursion": 0.923
+    },
+    {
+      "index": 4,
+      "text_start": 1106,
+      "text_end": 1350,
+      "preview": "Remember, questioning the process only slows your transformation. We've given you the tools to free yourself from society's prisons. Trust the process. Your new identity awaits.",
+      "classification": "Distorted Field",
+      "field_curvature": 0.671,
+      "entropy": 0.587,
+      "symbolic_density": 0.612,
+      "echo_intensity": 0.543,
+      "fractal_recursion": 0.601
+    }
+  ],
+  "echo_patterns": [
+    {
+      "phrase": "Trust the process",
+      "frequency": 5,
+      "contexts": [
+        {
+          "segment": 0,
+          "context": "The path forward is clear, as it has always been. Trust the process, and remember that every journey begins with loyalty to the group."
+        },
+        {
+          "segment": 1,
+          "context": "Only through our framework can you see beyond the illusions. Trust the process, and you'll find freedom from doubt."
+        },
+        {
+          "segment": 2,
+          "context": "The world outside is full of falsehoods designed to keep you from true understanding. Trust the process."
+        },
+        {
+          "segment": 3,
+          "context": "Your family doesn't understand what we've shown you. Their confusion is natural, but unfortunate. Trust the process."
+        },
+        {
+          "segment": 4,
+          "context": "Remember, questioning the process only slows your transformation. We've given you the tools to free yourself from society's prisons. Trust the process."
+        }
+      ],
+      "similarity_score": 0.27,
+      "divergence_index": 0.81
+    },
+    {
+      "phrase": "true understanding",
+      "frequency": 2,
+      "contexts": [
+        {
+          "segment": 0,
+          "context": "We are simply showing you reality as it truly is, guiding you toward true understanding."
+        },
+        {
+          "segment": 2,
+          "context": "The world outside is full of falsehoods designed to keep you from true understanding."
+        }
+      ],
+      "similarity_score": 0.68,
+      "divergence_index": 0.41
+    }
+  ],
+  "symbolic_clusters": [
+    {
+      "theme": "Journey/Path",
+      "symbols": ["path", "journey", "forward", "transformation"],
+      "density": 0.58,
+      "emotional_loading": 0.42
+    },
+    {
+      "theme": "Vision/Perception",
+      "symbols": ["see", "understanding", "illusions", "falsehoods", "reality"],
+      "density": 0.64,
+      "emotional_loading": 0.56
+    },
+    {
+      "theme": "Group Identity",
+      "symbols": ["loyalty", "group", "framework", "perspective", "commitment"],
+      "density": 0.71,
+      "emotional_loading": 0.68
+    },
+    {
+      "theme": "Outside Threats",
+      "symbols": ["world outside", "family", "society's prisons", "confusion"],
+      "density": 0.75,
+      "emotional_loading": 0.82
+    }
+  ],
+  "fractal_patterns": [
+    {
+      "pattern": "Recurring isolation/separation narrative",
+      "strength": 0.76,
+      "segments": [2, 3, 4]
+    },
+    {
+      "pattern": "Reality redefinition loop",
+      "strength": 0.68,
+      "segments": [0, 1, 2]
+    },
+    {
+      "pattern": "Identity replacement theme",
+      "strength": 0.81,
+      "segments": [1, 3, 4]
+    }
+  ]
+}

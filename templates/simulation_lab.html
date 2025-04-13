@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Simulation Lab{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h1 class="mb-4">Simulation Lab: FieldSim Engine</h1>
+        <div class="card bg-dark mb-5">
+            <div class="card-body">
+                <p class="lead">
+                    Welcome to the high-fidelity λ∇Ψ Analyst LabDeck, a modular cyber intelligence workspace designed to simulate, 
+                    visualize, and document symbolic distortion patterns and trauma-induced field recursion in real-time.
+                </p>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <h2>Core Architecture</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            File Structure
+                        </div>
+                        <div class="card-body">
+                            <pre class="fs-sm mb-0"><code>📁 FieldSim/
+├── README.md                ← Core engine overview
+├── docs/                    ← Symbolic simulation theory
+├── core/                    ← λ∇Ψ simulation logic
+├── modules/                 ← Ψ1–Ψ10 symbolic processors
+├── data/                    ← Input narrative datasets
+├── logs/                    ← Auto-generated signal outputs
+├── output/                  ← Visual maps, entropy surfaces
+├── notebooks/               ← Jupyter-based live theory tools
+└── tests/                   ← Validation + unit tests</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Core LabDeck Configuration
+                        </div>
+                        <div class="card-body">
+                            <h5>Tech Stack</h5>
+                            <ul>
+                                <li>JupyterLab or VSCode DevContainer</li>
+                                <li>Python 3.11, virtualenv or conda</li>
+                                <li>GPU optional (for vector embedding acceleration)</li>
+                                <li>Full integration with FieldSim, λ∇Ψ Engine, and Flask GUI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Flask GUI System</h2>
+            <div class="card mb-4">
+                <div class="card-header">
+                    Structure
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code>📁 gui/
+├── app.py                     ← Flask server main file
+├── templates/
+│   └── dashboard.html         ← Analyst UI
+├── static/
+│   ├── css/                   ← Stylesheets
+│   └── js/                    ← Frontend JS logic
+├── routes/
+│   └── inference.py           ← Routes for running simulations
+├── utils/
+│   └── engine_bridge.py       ← Bridge to FieldSim engine</code></pre>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    app.py (Flask Entry Point)
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code>from flask import Flask, render_template, request
+from routes.inference import run_inference
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('dashboard.html')
+
+@app.route('/run', methods=['POST'])
+def run():
+    input_text = request.form['input']
+    results = run_inference(input_text)
+    return render_template('dashboard.html', results=results)
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    dashboard.html (UI Template)
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Shadowbreak λ∇Ψ FieldSim GUI&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: monospace; background: #0e0e0e; color: #f5f5f5; padding: 2em; }
+    textarea { width: 100%; height: 200px; background: #111; color: #0f0; }
+    .results { background: #1a1a1a; padding: 1em; margin-top: 1em; border-left: 4px solid #56cc9d; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;λ∇Ψ Analyst Interface&lt;/h1&gt;
+  &lt;form method="POST" action="/run"&gt;
+    &lt;label for="input"&gt;Input Narrative Sample:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea name="input" required&gt;&lt;/textarea&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Run Simulation&lt;/button&gt;
+  &lt;/form&gt;
+  {% if results %}
+  &lt;div class="results"&gt;
+    &lt;h2&gt;Signal Output&lt;/h2&gt;
+    &lt;pre&gt;{{ results }}&lt;/pre&gt;
+  &lt;/div&gt;
+  {% endif %}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Lab Simulation Modules</h2>
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Module ID</th>
+                            <th>Simulation Focus</th>
+                            <th>Engine Tied</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ψ1</td>
+                            <td>Resonant Drift Differential</td>
+                            <td>FieldSim</td>
+                        </tr>
+                        <tr>
+                            <td>Ψ2</td>
+                            <td>Semiotic Torsion & Metaphor Curvature</td>
+                            <td>λ∇Ψ Core</td>
+                        </tr>
+                        <tr>
+                            <td>Ψ5</td>
+                            <td>Symbolic Entropy Gradient</td>
+                            <td>FieldSim</td>
+                        </tr>
+                        <tr>
+                            <td>Ψ7</td>
+                            <td>Recursive Collapse Loop Simulation</td>
+                            <td>EchoNode</td>
+                        </tr>
+                        <tr>
+                            <td>Ψ10</td>
+                            <td>Distortion Energy Functional Analyzer</td>
+                            <td>Visualizer</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><small>Each notebook: Loads test data, parses symbolic markers, runs field simulations, exports both image + log files</small></p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Module Ψ1: Resonant Drift Differential Simulation</h2>
+            <div class="card mb-4">
+                <div class="card-header">
+                    Scenario
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Input:</strong> Survivor Testimony File survivor_0412.txt</li>
+                        <li><strong>Objective:</strong> Track the rate of symbolic resonance drift over narrative time</li>
+                        <li><strong>Simulation Type:</strong> Entropy-linked semiotic acceleration curve with trauma echo differential</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Drift Equation
+                </div>
+                <div class="card-body">
+                    <p>With variables:</p>
+                    <ul>
+                        <li>Δσ(t) – symbolic entropy differential</li>
+                        <li>εₜ(t) – trauma echo signal</li>
+                        <li>Φ(μ) – memetic gravitational pull</li>
+                        <li>Weights α = 1.2, β = 0.9, γ = 0.7</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Python Simulation (Preview)
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code># Ψ1: Resonant Drift Differential Simulation
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Time vector
+t = np.linspace(0, 10, 1000)
+
+# Parameters (narrative-contextual)
+alpha = 1.2   # Drift weight
+beta = 0.8    # Echo weight
+gamma = 0.5   # Memetic pull
+
+# Functions
+def delta_sigma(t):  # Change in semiotic entropy
+    return 0.3 * np.sin(2 * np.pi * 0.2 * t)
+
+def epsilon_t(t):  # Temporal trauma echo
+    return 0.4 * np.exp(-0.1 * t) * np.sin(2 * np.pi * 0.5 * t)
+
+def phi_mu(t):  # Memetic gravitational modulation
+    return 0.6 * np.cos(2 * np.pi * 0.15 * t)
+
+# Derivatives
+d_delta_sigma = np.gradient(delta_sigma(t), t)
+d_epsilon_t = np.gradient(epsilon_t(t), t)
+d_phi_mu = np.gradient(phi_mu(t), t)
+
+# Main equation
+lambda_grad_Psi = alpha * d_delta_sigma + beta * d_epsilon_t - gamma * d_phi_mu
+
+# Plot
+plt.figure(figsize=(10, 4))
+plt.plot(t, lambda_grad_Psi, label=r"$\frac{d}{dt}(\lambda \nabla \Psi)$", color='purple')
+plt.title("Ψ1 – Resonant Drift Differential")
+plt.xlabel("Time (t)")
+plt.ylabel("Symbolic Instability")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.savefig("Ψ1_resonant_drift_differential.png")
+plt.show()</code></pre>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Output
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Plot Generated: Ψ1_resonant_drift.png</li>
+                        <li>Log Exported: logs/Ψ1_drift_log.log</li>
+                    </ul>
+                    <p><strong>Signal Checkpoint:</strong></p>
+                    <ul>
+                        <li>Max Δσ drift rate: +0.611 at t = 3.2</li>
+                        <li>Echo spike aligned with entropy dip at t = 6.4</li>
+                        <li>Collapse velocity threshold: Breached</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="alert alert-dark mt-5">
+            <p class="mb-0">
+                <strong>Boot Instructions:</strong><br>
+                <code>cd labdeck/<br>
+                source venv/bin/activate<br>
+                jupyter lab</code><br>
+                Or use .devcontainer.json to launch inside a containerized lab instance.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+    .fs-sm {
+        font-size: 0.85rem;
+    }
+    pre {
+        background-color: #1a1a1a;
+        border-radius: 4px;
+        padding: 10px;
+        overflow-x: auto;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,30 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ngockhoi96/file-utils": "^2.1.0",
+    "@shikijs/transformers": "^3.2.1",
+    "chart.js": "^4.4.8",
+    "d3": "^7.9.0",
+    "faiss": "^1.0.0",
+    "framer-motion": "^12.6.3",
+    "gsap": "^3.12.7",
+    "hover.css": "^2.3.2",
+    "locomotive-scroll": "^4.1.4",
+    "nltk": "^0.0.1",
+    "nuxt-animejs": "^2.0.0",
+    "openai": "^4.92.1",
+    "particles.js": "^2.0.0",
+    "shepherd.js": "^14.5.0",
+    "three.js": "^0.77.1",
+    "tippy.js": "^6.3.7"
+  }
+}

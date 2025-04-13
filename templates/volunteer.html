@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}Volunteer - SST OSINT{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="display-4 mb-4">Volunteer with the Shadowbreak Project</h1>
+    
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <div class="card bg-dark shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary mb-3">Join Our Mission</h2>
+                    <p class="lead">The Shadowbreak Project is powered by dedicated volunteers committed to fighting human trafficking and making a difference in the lives of survivors.</p>
+                    <p>Our volunteers come from diverse backgrounds, each bringing unique skills and perspectives to our work. Whether you have a few hours a month or want to become deeply involved, there's a place for you in our community.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-dark shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-info">Quick Links</h3>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent"><a href="#opportunities" class="text-decoration-none">Volunteer Opportunities</a></li>
+                        <li class="list-group-item bg-transparent"><a href="#requirements" class="text-decoration-none">Requirements</a></li>
+                        <li class="list-group-item bg-transparent"><a href="#application" class="text-decoration-none">Application Process</a></li>
+                        <li class="list-group-item bg-transparent"><a href="{{ url_for('outreach_support') }}" class="text-decoration-none">Outreach & Support</a></li>
+                        <li class="list-group-item bg-transparent"><a href="{{ url_for('contact') }}" class="text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="opportunities" class="mb-5">
+        <h2 class="border-bottom pb-2 text-danger">Volunteer Opportunities</h2>
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card bg-dark shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">OSINT Analysts</h3>
+                        <p>Help gather and analyze open-source intelligence to identify patterns and trends related to human trafficking.</p>
+                        <h5 class="mt-3">Skills Needed:</h5>
+                        <ul>
+                            <li>Research and analytical abilities</li>
+                            <li>Attention to detail</li>
+                            <li>Experience with data analysis (preferred)</li>
+                            <li>Understanding of OSINT principles (can be trained)</li>
+                        </ul>
+                        <p>Training in Shadow Systems Theory and the Field Distortion Engine will be provided.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card bg-dark shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Technology Volunteers</h3>
+                        <p>Contribute to the development and maintenance of our digital tools, including the Field Distortion Engine and other OSINT platforms.</p>
+                        <h5 class="mt-3">Skills Needed:</h5>
+                        <ul>
+                            <li>Software development</li>
+                            <li>Data science or machine learning</li>
+                            <li>Web development</li>
+                            <li>Cybersecurity</li>
+                        </ul>
+                        <p>Familiarity with Python, NLP, or data visualization is particularly valuable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card bg-dark shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Outreach & Education</h3>
+                        <p>Help spread awareness about human trafficking and the work of the Shadowbreak Project.</p>
+                        <h5 class="mt-3">Skills Needed:</h5>
+                        <ul>
+                            <li>Communication and presentation skills</li>
+                            <li>Experience in education or training</li>
+                            <li>Content creation</li>
+                            <li>Event planning</li>
+                        </ul>
+                        <p>Opportunities include leading workshops, creating educational materials, and representing the organization at events.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card bg-dark shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Social Media & Communications</h3>
+                        <p>Help manage our social media presence and create content that educates and inspires action.</p>
+                        <h5 class="mt-3">Skills Needed:</h5>
+                        <ul>
+                            <li>Social media management</li>
+                            <li>Content creation</li>
+                            <li>Graphic design</li>
+                            <li>Writing and editing</li>
+                        </ul>
+                        <p>Experience with platforms like X (Twitter), Instagram, Facebook, and Spotify is valuable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="requirements" class="mb-5">
+        <h2 class="border-bottom pb-2 text-danger">Volunteer Requirements</h2>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card bg-dark shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">General Requirements</h3>
+                        <ul>
+                            <li>18 years of age or older</li>
+                            <li>Commitment to the mission and values of the Shadowbreak Project</li>
+                            <li>Ability to maintain confidentiality and handle sensitive information ethically</li>
+                            <li>Reliable internet access (for remote volunteers)</li>
+                            <li>Commitment of at least 3-5 hours per month (varies by role)</li>
+                        </ul>
+                        
+                        <h3 class="card-title mt-4">Background Check</h3>
+                        <p>Due to the sensitive nature of our work, all volunteers must undergo a background check. This helps ensure the safety of everyone involved, especially survivors.</p>
+                        
+                        <h3 class="card-title mt-4">Training</h3>
+                        <p>All volunteers receive comprehensive training, including:</p>
+                        <ul>
+                            <li>Introduction to the Shadowbreak Project</li>
+                            <li>Understanding human trafficking</li>
+                            <li>Trauma-informed approaches</li>
+                            <li>Role-specific training</li>
+                            <li>Shadow Systems Theory (as applicable)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="application" class="mb-5">
+        <h2 class="border-bottom pb-2 text-danger">Application Process</h2>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card bg-dark shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">How to Apply</h3>
+                        <ol>
+                            <li>Complete the volunteer interest form by <a href="{{ url_for('contact') }}" class="text-info">contacting us</a></li>
+                            <li>Participate in an initial interview (virtual or in-person)</li>
+                            <li>Complete the background check process</li>
+                            <li>Attend orientation and training sessions</li>
+                            <li>Begin volunteering!</li>
+                        </ol>
+                        
+                        <div class="alert alert-info mt-4">
+                            <h5>Ready to Join?</h5>
+                            <p>To express your interest in volunteering, please contact us at <a href="mailto:team@shadowbreakproject.org" class="alert-link">team@shadowbreakproject.org</a> with the subject line "Volunteer Interest" or visit our <a href="{{ url_for('contact') }}" class="alert-link">Contact page</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center mt-5 mb-3">
+        <a href="{{ url_for('contact') }}" class="btn btn-danger btn-lg">Contact Us to Volunteer</a>
+    </div>
+</div>
+{% endblock %}

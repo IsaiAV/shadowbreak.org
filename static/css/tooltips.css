@@ -1,0 +1,104 @@
+/**
+ * SST-OSINT - Tooltips and Academic Glossary Styling
+ */
+
+/* Academic tooltip styling */
+.tippy-box[data-theme~='academic'] {
+  background-color: rgba(33, 37, 41, 0.95);
+  color: #f8f9fa;
+  border: 1px solid #565e68;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  font-size: 0.95rem;
+  max-width: 350px !important;
+  padding: 8px;
+}
+
+.tippy-box[data-theme~='academic'] .tippy-content {
+  padding: 10px 12px;
+}
+
+.tippy-box[data-theme~='academic'] .tippy-arrow {
+  color: #565e68;
+}
+
+.academic-term {
+  text-decoration: underline dotted #6c757d;
+  cursor: help;
+}
+
+/* Glossary panel styling */
+.glossary-panel {
+  position: fixed;
+  top: 70px;
+  right: -350px;
+  width: 350px;
+  height: calc(100vh - 70px);
+  background-color: rgba(33, 37, 41, 0.95);
+  border-left: 1px solid #565e68;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.glossary-panel.visible {
+  right: 0;
+}
+
+.glossary-toggle {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1001;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: var(--bs-primary);
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.glossary-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #adb5bd;
+  font-size: 1.2rem;
+}
+
+.glossary-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #565e68;
+}
+
+.glossary-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #3a3f45;
+}
+
+.glossary-term {
+  font-weight: bold;
+  color: var(--bs-primary);
+  margin-bottom: 5px;
+}
+
+.glossary-definition {
+  font-size: 0.9rem;
+  color: #dee2e6;
+}
+
+/* Tooltip emphasis */
+.term-highlight {
+  color: var(--bs-info);
+  font-weight: 500;
+}
+
+.concept-reference {
+  font-style: italic;
+  color: #adb5bd;
+}

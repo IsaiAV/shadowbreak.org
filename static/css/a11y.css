@@ -1,0 +1,175 @@
+/* Accessibility Stylesheet */
+
+/* High contrast mode */
+.high-contrast {
+    --bs-body-bg: #000;
+    --bs-body-color: #fff;
+    --bs-link-color: #ffff00;
+    --bs-link-hover-color: #ffff00;
+    --bs-dark-rgb: 0, 0, 0;
+    --bs-light-rgb: 255, 255, 255;
+}
+
+.high-contrast .navbar-dark,
+.high-contrast .bg-dark,
+.high-contrast .dropdown-menu-dark,
+.high-contrast .card,
+.high-contrast footer {
+    background-color: #000 !important;
+    border: 1px solid #fff !important;
+}
+
+.high-contrast .navbar-brand,
+.high-contrast h1, 
+.high-contrast h2, 
+.high-contrast h3, 
+.high-contrast h4, 
+.high-contrast h5, 
+.high-contrast h6 {
+    color: #ffff00 !important;
+}
+
+.high-contrast .text-muted {
+    color: #fff !important;
+}
+
+.high-contrast .nav-link,
+.high-contrast .dropdown-item {
+    color: #fff !important;
+}
+
+.high-contrast .nav-link:hover,
+.high-contrast .nav-link:focus,
+.high-contrast .dropdown-item:hover,
+.high-contrast .dropdown-item:focus {
+    color: #ffff00 !important;
+    background-color: #333 !important;
+}
+
+.high-contrast .btn-primary {
+    background-color: #0000ff !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.high-contrast .btn-secondary {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.high-contrast .btn-danger {
+    background-color: #ff0000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.high-contrast .btn-info {
+    background-color: #00aaff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+/* Focus mode styling */
+.focus-mode .container {
+    max-width: 700px !important;
+}
+
+.focus-mode p, 
+.focus-mode li,
+.focus-mode label {
+    line-height: 1.8 !important;
+}
+
+.focus-mode *:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 3px !important;
+}
+
+/* Reduce motion styling */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0.001s !important;
+    transition-duration: 0.001s !important;
+    transition-delay: 0.001s !important;
+}
+
+/* Screen reader optimizations */
+.sr-optimized .sr-description {
+    display: inline-block !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip to content link */
+.visually-hidden-focusable:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.visually-hidden-focusable:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    background-color: #212529;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    outline: 3px solid #ffff00;
+}
+
+/* Improved focus indicators */
+a:focus, 
+button:focus, 
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: 3px solid #00aaff !important;
+    outline-offset: 3px !important;
+}
+
+/* Accessibility controls */
+#a11y-controls button {
+    font-size: 1rem;
+}
+
+#a11y-menu h5 {
+    color: #fff;
+}
+
+/* Style accordion focus state for screen readers */
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 170, 255, 0.5) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001s !important;
+        animation-delay: 0.001s !important;
+        transition-duration: 0.001s !important;
+        transition-delay: 0.001s !important;
+    }
+}

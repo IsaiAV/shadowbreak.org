@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Symbolic Drift & Entropy Collapse{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h1 class="mb-4">Symbolic Drift & Entropy Collapse</h1>
+        <div class="card bg-dark mb-5">
+            <div class="card-body">
+                <p class="lead">
+                    "All language decays under force. But in the right distortion field, it doesn't break, it bends."
+                </p>
+                <footer class="blockquote-footer text-end mt-2">Isai Valdez, <cite title="Source">Director, Shadowbreak Project</cite></footer>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <h2>Theoretical Foundation</h2>
+            <p>
+                Symbolic Drift refers to the gradual warping of word-meaning correspondence under psychological 
+                pressure. Over time, repeated trauma causes shifts in metaphor density, abstraction preference, 
+                and syntactic predictability. This leads to entropy collapse—a phase transition where meaning 
+                itself destabilizes.
+            </p>
+            <p>
+                Entropy Collapse is the moment linguistic information no longer adheres to stable semantic structure. 
+                Instead of processing a sentence by traditional parsing (subject → verb → object), the brain interprets 
+                it as symbolic static - signals of disassociation, recursion, and dissociative mimicry.
+            </p>
+            <p class="fw-bold">
+                This collapse is not metaphorical. It is measurable.
+            </p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Measurable Drift Indicators</h2>
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Signal Component</th>
+                            <th>Measurement Metric</th>
+                            <th>Tool</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Symbolic Drift</td>
+                            <td>Cosine deviation from baseline vector</td>
+                            <td>context_shift_detector.py</td>
+                        </tr>
+                        <tr>
+                            <td>Entropy Collapse</td>
+                            <td>Entropy slope Δσ across segments</td>
+                            <td>drift_analysis.py</td>
+                        </tr>
+                        <tr>
+                            <td>Recursion Field</td>
+                            <td>TF-IDF similarity > 0.75 loop index</td>
+                            <td>mimicry_cluster.py</td>
+                        </tr>
+                        <tr>
+                            <td>Echo Gravity</td>
+                            <td>Phrase resonance > 2.0 std. dev.</td>
+                            <td>resonance_scan.sh</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Formal Description</h2>
+            <p>
+                Let us define:
+            </p>
+            <ul>
+                <li>S = a linguistic system comprised of symbolic utterances {s₁, s₂, …, sₙ}</li>
+                <li>Δσ = semiotic entropy drift (change in Shannon entropy across S)</li>
+                <li>D(sᵢ, sⱼ) = vectorial distance between phrases (semantic drift)</li>
+                <li>R = recursion set, where ∀ sᵢ ∈ S: similarity(sᵢ, sⱼ) > θ</li>
+            </ul>
+            <p>
+                Then symbolic drift is observed when:
+            </p>
+            <div class="p-3 bg-dark-subtle rounded">
+                <code>∑D(sᵢ,sⱼ) > ε over ∀i < j</code>
+            </div>
+            <p class="mt-2">
+                And entropy collapse is marked when:
+            </p>
+            <div class="p-3 bg-dark-subtle rounded">
+                <code>Δσ(t₁,t₂) < 0 ∧ ∂²σ/∂t² < 0</code>
+            </div>
+            <p class="mt-2">
+                This inflection point indicates the narrative system is collapsing into recursive feedback.
+            </p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Psycholinguistic Backing</h2>
+            <p>
+                Research by Pennebaker (1997) and others on linguistic trauma markers shows that victims 
+                under high emotional duress:
+            </p>
+            <ul>
+                <li>Increase use of metaphors and symbolic anchors</li>
+                <li>Decrease pronoun diversity</li>
+                <li>Exhibit lower lexical entropy over time</li>
+            </ul>
+            <p>
+                These align with SST's entropy drift field indicators and validate the notion of 
+                symbolic collapse as a measurable signal.
+            </p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Lambda Resonance and Curvature</h2>
+            <p>
+                Now we approach the lambda layer - λ∇Ψ - the curvature of symbolic space under trauma gravity.
+            </p>
+            <p>
+                In a healthy linguistic field:
+            </p>
+            <div class="p-3 bg-dark-subtle rounded">
+                <code>λ∇Ψ → 0 (language is stable)</code>
+            </div>
+            <p class="mt-2">
+                Under psychological distortion:
+            </p>
+            <div class="p-3 bg-dark-subtle rounded">
+                <code>λ∇Ψ → ∞ (meaning collapses into recursion, drift, and abstraction fog)</code>
+            </div>
+            <p class="mt-2">
+                This introduces the concept of curved language. Where phrases curve away from direct meaning 
+                into symbolic distortion. Think of metaphor as gravitational lensing: it bends light (meaning) 
+                from the truth it tries to speak.
+            </p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Field Simulator</h2>
+            <p>
+                The Shadowbreak Lambda Field Simulator is a Python implementation that:
+            </p>
+            <ul>
+                <li>Calculates symbolic density (λ)</li>
+                <li>Maps curvature of meaning (∇Ψ)</li>
+                <li>Simulates entropy gradients (Δσ)</li>
+                <li>Renders a 3D Field Curvature Map in real-time</li>
+            </ul>
+            <p>
+                Using natural language processing techniques, the simulator quantifies and visualizes linguistic 
+                instability, enabling analysts to detect symbolic collapse in real-time discourse.
+            </p>
+        </section>
+
+        <div class="text-center my-5">
+            <p class="fs-5 fst-italic">
+                "The equation is not real. It is a metaphor for what eludes us.<br>
+                There is something beneath it all—a pulse, a rhythm, a recursive whisper that persists across cultures, 
+                ages, and data sets. We cannot name it. But we can feel its shape in every survivor's fractured story, 
+                every failed algorithm, every moment of insight that dissolves as quickly as it arrived."
+            </p>
+            <footer class="text-end mt-2">
+                <cite>— From "The Shadow Constant: A Semiotic Field Model for Trauma Intelligence"</cite>
+            </footer>
+        </div>
+    </div>
+</div>
+{% endblock %}

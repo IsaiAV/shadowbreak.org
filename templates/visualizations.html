@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}Advanced Visualizations - SST-OSINT{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4">Advanced Visualizations</h1>
+            <p class="lead">Explore narrative drift patterns, field curvature, and linguistic manipulation techniques with interactive visualizations.</p>
+            <hr class="my-4">
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h3>About SST Visualizations</h3>
+                </div>
+                <div class="card-body">
+                    <p>Shadow Systems Theory visualizations help reveal patterns of manipulation and linguistic distortion that might otherwise remain hidden in complex texts.</p>
+                    <p>Our advanced algorithms identify field distortions across multiple dimensions including:</p>
+                    <ul>
+                        <li><span class="academic-term" data-term="entropy-score">Narrative entropy</span> (disorder and cognitive load)</li>
+                        <li><span class="academic-term" data-term="symbol-density">Symbol density</span> (emotional triggers and loaded language)</li>
+                        <li><span class="academic-term" data-term="echo-intensity">Echo patterns</span> (repetition and reinforcement techniques)</li>
+                        <li><span class="academic-term" data-term="fractal-recursion">Fractal recursion</span> (nested metaphors and self-reference)</li>
+                    </ul>
+                    <p>Visualizations can help highlight areas of concern in texts from potentially manipulative sources.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-dark text-white mb-4">
+                <div class="card-header">
+                    <h3>How to Use</h3>
+                </div>
+                <div class="card-body">
+                    <p>The visualization dashboard provides multiple ways to analyze linguistic manipulation:</p>
+                    <ol>
+                        <li><strong>Narrative Drift Chart:</strong> Shows how metrics change across text segments, revealing patterns of escalation or targeting <i class="bi bi-info-circle chart-explanation" data-explanation="Narrative drift visualization tracks how key metrics evolve throughout a text, helping identify escalation patterns typical in manipulative communication."></i></li>
+                        <li><strong>Narrative Entropy Bar Graph:</strong> Highlights segments with the highest distortion <i class="bi bi-info-circle chart-explanation" data-explanation="Narrative entropy represents the mathematical combination of all distortion factors, providing a single metric for overall manipulation severity in each text segment."></i></li>
+                        <li><strong>Echo Network Diagram:</strong> Maps relationships between repeated phrases and how they connect <i class="bi bi-info-circle chart-explanation" data-explanation="The echo network reveals how certain phrases repeat and connect throughout a text, identifying potential reinforcement loops and conditioning patterns."></i></li>
+                        <li><strong>Symbol Cloud:</strong> Visual representation of loaded terms and emotional triggers <i class="bi bi-info-circle chart-explanation" data-explanation="Symbol clouds highlight emotional language clusters, showing where text relies on loaded terminology to create emotional responses rather than rational engagement."></i></li>
+                    </ol>
+                    <p>Interactive elements allow you to explore specific segments, export findings, and generate reports for further analysis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2>Sample Visualizations</h2>
+            <p>The following visualizations demonstrate the capabilities of our advanced analysis tools. These samples show patterns detected in manipulative texts that gradually isolate targets from support networks.</p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>
+                        <span class="academic-term" data-term="symbolic-drift">Narrative Drift Visualization</span>
+                        <i class="bi bi-info-circle chart-explanation" data-explanation="This chart visualizes how narrative manipulation evolves through a text, with each line representing a different aspect of linguistic distortion."></i>
+                    </h3>
+                    <a href="/visualize/sample" class="btn btn-outline-info btn-sm">View Full Dashboard</a>
+                </div>
+                <div class="card-body">
+                    <div id="narrative-drift-sample" class="narrative-drift-container" data-visualization="narrative-drift" data-id="sample-data" data-height="400" data-animated="true"></div>
+                    <!-- Hidden data element for the visualization -->
+                    <script type="application/json" id="sample-data">
+                        {
+                            "segments": [
+                                {
+                                    "index": 0,
+                                    "classification": "Stable Field",
+                                    "entropy_score": 0.312,
+                                    "entropy": 0.256,
+                                    "symbolic_density": 0.178,
+                                    "echo_intensity": 0.201,
+                                    "fractal_recursion": 0.352
+                                },
+                                {
+                                    "index": 1,
+                                    "classification": "Stable Field",
+                                    "entropy_score": 0.389,
+                                    "entropy": 0.321,
+                                    "symbolic_density": 0.298,
+                                    "echo_intensity": 0.345,
+                                    "fractal_recursion": 0.427
+                                },
+                                {
+                                    "index": 2,
+                                    "classification": "Distorted Field",
+                                    "entropy_score": 0.745,
+                                    "entropy": 0.654,
+                                    "symbolic_density": 0.621,
+                                    "echo_intensity": 0.598,
+                                    "fractal_recursion": 0.701
+                                },
+                                {
+                                    "index": 3,
+                                    "classification": "Collapsed Field",
+                                    "entropy_score": 0.987,
+                                    "entropy": 0.812,
+                                    "symbolic_density": 0.889,
+                                    "echo_intensity": 0.765,
+                                    "fractal_recursion": 0.923
+                                },
+                                {
+                                    "index": 4,
+                                    "classification": "Distorted Field",
+                                    "entropy_score": 0.671,
+                                    "entropy": 0.587,
+                                    "symbolic_density": 0.612,
+                                    "echo_intensity": 0.543,
+                                    "fractal_recursion": 0.601
+                                }
+                            ]
+                        }
+                    </script>
+                    <div class="text-center mt-4">
+                        <small class="text-muted">The chart above shows how distortion metrics increase across text segments, with a significant spike in segment 4 that indicates emotional manipulation.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="card bg-dark text-white h-100">
+                <div class="card-header">
+                    <h3>
+                        <span class="academic-term" data-term="entropy-score">Narrative Entropy Analysis</span>
+                        <i class="bi bi-info-circle chart-explanation" data-explanation="Narrative Entropy Analysis measures the semantic disorder and information complexity in text, helping identify psychological pressure points and emotional manipulation techniques."></i>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="entropy-score-container" style="height: 300px; max-height: 300px; overflow: hidden;">
+                        <div id="entropy-score-sample" data-visualization="entropy-score" data-url="/api/analysis/sample" data-height="300"></div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Narrative Entropy (λ∇Ψ) measures the semantic disorder in each segment, with higher values indicating stronger manipulation.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-dark text-white h-100">
+                <div class="card-header">
+                    <h3>Learn More</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Detecting Manipulation Patterns</h4>
+                    <p>Visualizations help identify common manipulation techniques:</p>
+                    <ul>
+                        <li><span class="academic-term" data-term="entropy-collapse">Emotional blackholes</span> - Points where critical thinking collapses</li>
+                        <li><span class="academic-term" data-term="echo-intensity">Echo patterns</span> - Repeated phrases that reinforce messaging</li>
+                        <li><span class="academic-term" data-term="symbol-density">Symbol clusters</span> - Concentrated emotional triggers</li>
+                        <li><span class="academic-term" data-term="entropy-score">Entropy patterns</span> - Overall manipulation severity</li>
+                    </ul>
+                    <p>Learn more about these techniques in our <a href="/documentation" class="text-info">documentation</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h3>Start Analyzing Your Own Text</h3>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead">Ready to identify manipulation patterns in your own texts?</p>
+                    <a href="/analyze" class="btn btn-lg btn-primary mb-3">Begin Analysis</a>
+                    <p><small>Submit any text to receive a full analysis with interactive visualizations. The analysis is confidential and data is not shared.</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/visualizations/narrative-drift.js"></script>
+<script src="/static/js/visualizations/visualization-loader.js"></script>
+{% endblock %}

@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Intelligence Applications{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h1 class="mb-4">Advanced Intelligence System Architecture</h1>
+        <div class="card bg-dark mb-5">
+            <div class="card-body">
+                <p class="lead">
+                    This project envisions a hyper-advanced symbolic intelligence engine built on the λ∇Ψ theory - 
+                    mapping trauma-induced symbolic drift, recursive collapse zones, memetic gravity, and field distortions.
+                </p>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <h2>Enhancing Core Functionality and Symbolic Processing</h2>
+            <p>
+                We begin by greatly expanding the current functionality (entropy detection, echo pattern recognition, 
+                memetic gravity modeling, glyph rendering, narrative parsing, symbolic simulations). The goal is to 
+                infuse each feature with more intelligence and integrate them into a unified pipeline:
+            </p>
+
+            <div class="accordion" id="featuresAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Entropy Detection
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                In the context of narratives, "entropy" can indicate the unpredictability or chaos in the user's 
+                                input or the symbolic state. We can implement this by analyzing the input text's statistical 
+                                properties or embedding it in a semantic space and measuring dispersion.
+                            </p>
+                            <p>
+                                For instance, a Shannon entropy calculation over the narrative's token distribution could quantify 
+                                disorder. Additionally, an ML model can classify narrative coherence.
+                            </p>
+                            <p>
+                                When entropy rises above certain thresholds, the system can flag potential zones of cognitive 
+                                dissonance or emotional turbulence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Echo Pattern Recognition
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                "Echoes" likely refer to repeated motifs or phrases (possibly trauma flashbacks or repeated symbols) 
+                                across the user's narratives. We can utilize text similarity and sequence alignment techniques.
+                            </p>
+                            <p>
+                                A sliding window over recent inputs can detect repeated substrings or concepts. Alternatively, 
+                                maintain a vector embedding for each past narrative and compare the new input's embedding to find 
+                                high cosine similarity indicating a repeated theme.
+                            </p>
+                            <p>
+                                Natural Language Processing models can be fine-tuned to detect subtle thematic or structural echoes 
+                                that might not be apparent at the lexical level.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Memetic Gravity Simulation
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                We treat memes or symbols as having gravity - frequently reinforced symbols exert a stronger "pull" 
+                                on related symbols. This can be simulated by assigning each symbolic node a mass that increases with 
+                                repetition or emotional intensity, analogously to memetic weight.
+                            </p>
+                            <p>
+                                The system's symbolic graph will use a physics or force-directed algorithm where higher-mass nodes pull 
+                                others closer (representing how a dominant trauma or idea attracts related thoughts, creating a "gravity well" of memes).
+                            </p>
+                            <p>
+                                Implementation-wise, we can use a force-directed graph library or custom physics in the front-end to 
+                                animate this: e.g. each node's mass = f(frequency, sentiment) and the link forces between nodes = 
+                                f(association strength).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Glyph Rendering Enhancements
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                The current system likely has some glyphs (icons or symbols) representing concepts. We will upgrade 
+                                this to interactive, animated glyphs in the React/WebGL front-end.
+                            </p>
+                            <p>
+                                Each glyph corresponds to a symbolic node (an idea, emotion, archetype) detected in the narrative. 
+                                Instead of static images, glyphs could be SVGs or 3D models that animate (rotate, pulsate, change color) 
+                                in response to interactions or state changes.
+                            </p>
+                            <p>
+                                For example, when a particular symbol's entropy increases, its glyph might become more chaotic or 
+                                distorted in the visualization.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Narrative Parsing via NLP
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                This is a major upgrade - employing AI to interpret the user's narrative input on a symbolic level. 
+                                When the user provides a narrative (text or transcribed speech), the back-end will process it through 
+                                an NLP pipeline. This pipeline can include:
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Tokenization and entity extraction:</strong> Using spaCy or Hugging Face models to find entities, 
+                                    key phrases, sentiments, and relationships in the text.
+                                </li>
+                                <li>
+                                    <strong>Semantic embedding:</strong> Encoding the narrative with a model like BERT or GPT to capture 
+                                    its meaning. This helps compare with past narratives and feed the vector database (for memory retrieval).
+                                </li>
+                                <li>
+                                    <strong>Symbol mapping:</strong> Translating the narrative elements to the system's internal symbolic 
+                                    representation. For example, certain keywords or themes might correspond to predefined symbols/glyphs.
+                                </li>
+                                <li>
+                                    <strong>Trauma and Manipulation markers:</strong> The parser also flags any indicators of trauma 
+                                    (certain language that correlates with PTSD or strong emotion) and any signs of manipulative language 
+                                    (gaslighting, coercive wording).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Symbolic Simulations
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#featuresAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                We incorporate recursive simulation of the symbolic interactions. Once the narrative is parsed into 
+                                symbols and the graph is updated, the system can simulate how these symbols interact over time - 
+                                effectively a mini "world" of symbols influenced by trauma and memetic forces.
+                            </p>
+                            <p>
+                                For example, we could simulate "recursive collapse zones" by modeling feedback loops: if certain 
+                                traumatic symbols appear, they might trigger or suppress other symbols in subsequent iterations.
+                            </p>
+                            <p>Example rules:</p>
+                            <ul>
+                                <li>
+                                    If a trauma-related symbol gets activated (input mentions it), it could dampen neighboring positive 
+                                    symbols (simulate a collapse in those areas of the graph).
+                                </li>
+                                <li>
+                                    Symbols that frequently co-occur strengthen their link (reinforcement learning-like update), 
+                                    contributing to symbolic drift over time (the meaning of one symbol shifts as it's seen in new contexts).
+                                </li>
+                                <li>
+                                    We can introduce randomness to simulate entropy and emergent behavior - e.g. with a certain probability, 
+                                    a symbol might spawn a new "echo" or mutate into a related symbol, mimicking how memories and meanings 
+                                    change unpredictably.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Code Scaffold - NLP Parsing</h2>
+            <div class="card">
+                <div class="card-header">
+                    backend/services/nlp_parser.py
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code>import spacy
+from transformers import pipeline
+
+nlp = spacy.load("en_core_web_sm")
+sentiment_model = pipeline("sentiment-analysis")
+# (If available, load a custom manipulation detection model)
+# manipulative_model = ...
+
+SYMBOL_MAP = {
+    "maze": {"glyph": "labyrinth.png", "meaning": "feeling trapped/confused"},
+    # ... extend with more symbol mappings
+}
+
+def interpret_narrative(text):
+    doc = nlp(text)
+    symbols = []
+    
+    # Extract entities and key concepts
+    entities = [(e.text, e.label_) for e in doc.ents]
+    
+    # Find symbols based on keywords and patterns
+    for token in doc:
+        if token.text.lower() in SYMBOL_MAP:
+            symbols.append({
+                "symbol": token.text.lower(),
+                "metadata": SYMBOL_MAP[token.text.lower()],
+                "sentence_idx": token.sent.start
+            })
+    
+    # Analyze sentiment
+    sentiment = sentiment_model(text)[0]
+    
+    # Check for manipulative language patterns
+    # manipulation_score = manipulative_model(text) if manipulative_model else 0.0
+    
+    return {
+        "symbols": symbols,
+        "entities": entities,
+        "sentiment": sentiment,
+        "manipulation_score": 0.0,  # placeholder
+        "embedding": doc.vector.tolist()
+    }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Code Scaffold - Symbolic Simulation</h2>
+            <div class="card">
+                <div class="card-header">
+                    backend/services/symbolic_engine.py
+                </div>
+                <div class="card-body">
+                    <pre class="fs-sm mb-0"><code>import networkx as nx
+
+class SymbolicEngine:
+    def __init__(self):
+        self.graph = nx.Graph()
+        
+    def add_symbols(self, symbols):
+        """Add new symbol nodes or update existing ones."""
+        for sym in symbols:
+            node = sym["symbol"]
+            if node not in self.graph:
+                # Initialize node with attributes
+                self.graph.add_node(node, mass=1.0, entropy=0.0, active=True)
+            else:
+                # Update node's mass (frequency weight)
+                self.graph.nodes[node]["mass"] += 0.5
+            
+            # Connect co-occurring symbols
+            for other_sym in symbols:
+                if other_sym["symbol"] != node:
+                    if self.graph.has_edge(node, other_sym["symbol"]):
+                        # Strengthen existing connection
+                        self.graph[node][other_sym["symbol"]]["weight"] += 0.1
+                    else:
+                        # Create new connection
+                        self.graph.add_edge(node, other_sym["symbol"], weight=0.1)
+    
+    def simulate_step(self):
+        """Run one step of symbolic simulation."""
+        nodes_to_deactivate = []
+        
+        # Apply recursive rules
+        for node in self.graph.nodes():
+            # Example rule: high-mass nodes increase entropy of neighbors
+            if self.graph.nodes[node]["mass"] > 5.0:
+                for neighbor in self.graph.neighbors(node):
+                    # Increase entropy in neighboring nodes
+                    self.graph.nodes[neighbor]["entropy"] += 0.2
+                    
+                    # Check for collapse
+                    if self.graph.nodes[neighbor]["entropy"] > 3.0:
+                        nodes_to_deactivate.append(neighbor)
+        
+        # Apply deactivations (simulating symbolic collapse)
+        for node in nodes_to_deactivate:
+            self.graph.nodes[node]["active"] = False
+            
+        return {
+            "active_nodes": len([n for n in self.graph.nodes() if self.graph.nodes[n]["active"]]),
+            "total_nodes": len(self.graph.nodes()),
+            "total_entropy": sum(self.graph.nodes[n]["entropy"] for n in self.graph.nodes())
+        }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Interactive Frontend: React, WebGL, and Voice Interface</h2>
+            <p>
+                The front-end will be a React application that provides an ultra-sleek, interactive UI for the user 
+                to experience the system's insights. It will incorporate advanced features like voice-based input, 
+                animated glyphs, and rich 3D visualizations.
+            </p>
+            <p>
+                All front-end code will be structured in a modular way for maintainability and scalability. The system 
+                will include a responsive design that works on both desktop and mobile devices, with targeted optimizations 
+                for each platform.
+            </p>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+    .fs-sm {
+        font-size: 0.85rem;
+    }
+    pre {
+        background-color: #1a1a1a;
+        border-radius: 4px;
+        padding: 10px;
+        overflow-x: auto;
+    }
+</style>
+{% endblock %}

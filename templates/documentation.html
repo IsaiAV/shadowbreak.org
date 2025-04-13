@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Documentation{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="position-sticky" style="top: 2rem;">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action bg-dark" href="#overview">Overview</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#fractal-drift">Fractal Drift Detector</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#narrative-entropy">Narrative Entropy Scanner</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#symbolic-density">Symbolic Density Analyzer</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#echo-patterns">Echo Pattern Engine</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#observer-simulation">Observer Simulation Layer</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#field-curvature">Field Curvature Model</a>
+                <a class="list-group-item list-group-item-action bg-dark" href="#interpretation">Interpretation Guide</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-9">
+        <h2 class="mb-4">Field Distortion Engine Documentation</h2>
+        
+        <section id="overview" class="mb-5">
+            <h3 class="text-info">Overview</h3>
+            <p>
+                The Field Distortion Engine (FDE) is a modular text analysis system that integrates
+                multiple analytical approaches to detect and measure narrative distortion, emotional
+                manipulation, and linguistic patterns associated with deception or coercion.
+            </p>
+            <p>
+                The engine processes text through five specialized modules, then combines their outputs
+                to calculate the field curvature (λ∇Ψ), a single scalar value representing the degree
+                of narrative distortion. Based on this value, the text is classified into one of three
+                categories: Stable Field, Distorted Field, or Recursive Collapse.
+            </p>
+        </section>
+        
+        <section id="fractal-drift" class="mb-5">
+            <h3 class="text-info">Fractal Drift Detector (FDD)</h3>
+            <p>
+                The Fractal Drift Detector identifies recursion and metaphor reuse patterns in text.
+                It analyzes how narrative elements repeat and transform throughout a document, revealing
+                potential manipulation through repetitive language structures.
+            </p>
+            <h5>Key Metrics:</h5>
+            <ul>
+                <li><strong>Recursion Score:</strong> Measures the degree of self-similarity in non-adjacent text segments</li>
+                <li><strong>Narrative Stability:</strong> Quantifies the consistency of narrative direction</li>
+                <li><strong>Fractal Signatures:</strong> Identifies recurring patterns and their transformations</li>
+                <li><strong>Metaphor Clusters:</strong> Detects figurative language patterns and their frequency</li>
+            </ul>
+            <p>
+                High recursion scores may indicate manipulation through repetitive reinforcement,
+                while low narrative stability suggests potential discrepancies or inconsistencies.
+            </p>
+        </section>
+        
+        <section id="narrative-entropy" class="mb-5">
+            <h3 class="text-info">Narrative Entropy Scanner (NES)</h3>
+            <p>
+                The Narrative Entropy Scanner measures semantic entropy (disorder) over time in a text.
+                It identifies areas of high cognitive dissociation, narrative trauma zones, or emotional
+                collapse within the discourse.
+            </p>
+            <h5>Key Metrics:</h5>
+            <ul>
+                <li><strong>Lexical Entropy:</strong> Disorder in word choice and frequency distribution</li>
+                <li><strong>Syntactic Entropy:</strong> Disorder in sentence structure and grammatical patterns</li>
+                <li><strong>Semantic Coherence:</strong> Consistency of meaning across adjacent sentences</li>
+                <li><strong>Entropy Gradient:</strong> Rate of change in entropy between segments</li>
+            </ul>
+            <p>
+                High entropy segments may indicate emotional flooding, cognitive dissonance, or deliberate
+                obfuscation. Sudden entropy spikes often mark narrative trauma zones where coherence breaks down.
+            </p>
+        </section>
+        
+        <section id="symbolic-density" class="mb-5">
+            <h3 class="text-info">Symbolic Density Analyzer (SDA)</h3>
+            <p>
+                The Symbolic Density Analyzer identifies symbol-heavy language and metaphor clusters,
+                mapping emotional loading and potential manipulation through symbolic association and framing.
+            </p>
+            <h5>Key Metrics:</h5>
+            <ul>
+                <li><strong>Symbol Density:</strong> Concentration of symbolically charged language</li>
+                <li><strong>Emotional Blackholes:</strong> Segments with extremely high symbolic density</li>
+                <li><strong>Symbol Clusters:</strong> Related symbolic elements appearing together</li>
+                <li><strong>Grooming Patterns:</strong> Language patterns associated with manipulative behaviors</li>
+            </ul>
+            <p>
+                Symbol-heavy language may indicate emotional manipulation, while certain symbol clusters
+                can reveal unconscious associations or deliberate framing attempts.
+            </p>
+        </section>
+        
+        <section id="echo-patterns" class="mb-5">
+            <h3 class="text-info">Echo Pattern Engine (EPE)</h3>
+            <p>
+                The Echo Pattern Engine detects repeated phrases that appear in contextually distorted settings,
+                revealing potential grooming loops, obedience reinforcement, or false memory implantation.
+            </p>
+            <h5>Key Metrics:</h5>
+            <ul>
+                <li><strong>Echo Count:</strong> Number of significant repeated phrases detected</li>
+                <li><strong>Echo Intensity:</strong> Strength of echo patterns based on repetition and context shift</li>
+                <li><strong>Context Similarity:</strong> How similar the surrounding context is for each repetition</li>
+                <li><strong>Context Shifts:</strong> Significant changes in surrounding context for repeated phrases</li>
+            </ul>
+            <p>
+                Phrases repeated in increasingly distorted contexts may indicate manipulative reinforcement,
+                gaslighting, or attempts to normalize aberrant concepts through repetition.
+            </p>
+        </section>
+        
+        <section id="observer-simulation" class="mb-5">
+            <h3 class="text-info">Observer Simulation Layer (OSL)</h3>
+            <p>
+                The Observer Simulation Layer inserts analyst personas into the input stream to test
+                resonance response and simulate "observer interference" for feedback loop modeling.
+            </p>
+            <h5>Key Metrics:</h5>
+            <ul>
+                <li><strong>Resonance Scores:</strong> How strongly the text resonates with different analytical perspectives</li>
+                <li><strong>Feedback Loops:</strong> Potential reinforcement patterns that amplify over iterations</li>
+                <li><strong>Sentiment Shifts:</strong> Significant emotional transitions across the narrative</li>
+            </ul>
+            <p>
+                This module helps identify which analytical perspective is most suited to the text,
+                and reveals potential feedback mechanisms that could amplify distortion over time.
+            </p>
+        </section>
+        
+        <section id="field-curvature" class="mb-5">
+            <h3 class="text-info">Field Curvature Model</h3>
+            <p>
+                The Field Curvature Model combines outputs from all modules to calculate λ∇Ψ (Lambda Del Psi),
+                a scalar value representing the overall degree of narrative distortion.
+            </p>
+            <div class="card bg-dark border-secondary mb-3">
+                <div class="card-body">
+                    <p class="text-center">λ∇Ψ = Δσ + εᵥ - Φ(μ)</p>
+                    <ul>
+                        <li><strong>Δσ (Delta Sigma):</strong> Sentence variance/field tension (from symbolic density)</li>
+                        <li><strong>εᵥ (Epsilon):</strong> Trauma echo intensity/emotional amplitude (from echo patterns)</li>
+                        <li><strong>Φ(μ) (Phi Mu):</strong> Lexical uniqueness factor/entropy reduction (from narrative entropy)</li>
+                    </ul>
+                </div>
+            </div>
+            <p>
+                This formula balances field tension (potential for distortion), emotional amplitude (intensity of distortion),
+                and entropy reduction (resistance to distortion) to produce a single value measuring narrative field stability.
+            </p>
+        </section>
+        
+        <section id="interpretation" class="mb-5">
+            <h3 class="text-info">Interpretation Guide</h3>
+            <p>
+                Field classifications provide a general assessment of narrative stability and potential manipulation:
+            </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-dark border-success mb-3">
+                        <div class="card-header text-success">Stable Field (λ∇Ψ &lt; 0.2)</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Coherent narrative</li>
+                                <li>Minimal distortion</li>
+                                <li>Low manipulation risk</li>
+                                <li>Standard communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark border-warning mb-3">
+                        <div class="card-header text-warning">Distorted Field (0.2 &leq; λ∇Ψ &lt; 0.6)</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Moderate distortion</li>
+                                <li>Potential manipulation</li>
+                                <li>Some inconsistency</li>
+                                <li>Requires investigation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark border-danger mb-3">
+                        <div class="card-header text-danger">Recursive Collapse (λ∇Ψ &geq; 0.6)</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Severe distortion</li>
+                                <li>High manipulation</li>
+                                <li>Recursive patterns</li>
+                                <li>Potential coercion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                For detailed analysis, examine the individual module outputs to identify specific
+                patterns and areas of concern within the text.
+            </p>
+        </section>
+    </div>
+</div>
+{% endblock %}

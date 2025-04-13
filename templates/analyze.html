@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Text Analysis{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <h1 class="mb-4">Field Distortion Analysis</h1>
+        <p class="mb-4" id="analysis-description">
+            Submit text below to analyze using the Field Distortion Engine (FDE). 
+            The system will detect narrative patterns, measure entropy, and calculate 
+            the field curvature (<span aria-hidden="true" class="lambda-symbol">λ∇Ψ</span><span class="sr-description visually-hidden">Lambda Nabla Psi</span>) of the text.
+        </p>
+        
+        <div class="card bg-dark" role="region" aria-labelledby="analysis-form-heading">
+            <div class="card-body">
+                <h2 id="analysis-form-heading" class="visually-hidden">Analysis Form</h2>
+                <form method="POST" action="{{ url_for('analyze') }}" aria-describedby="analysis-description">
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Text for Analysis</label>
+                        <textarea class="form-control" id="text" name="text" rows="10" 
+                                  placeholder="Enter text to analyze (minimum 100 characters recommended for accurate analysis)" 
+                                  required aria-required="true"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-text" id="analysis-note">
+                            <strong>Note:</strong> Longer texts will be automatically segmented for analysis. 
+                            For optimal results, provide complete narratives rather than sentence fragments.
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary px-5" aria-label="Analyze submitted text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"/>
+                            </svg>
+                            <span>Analyze Text</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="mt-4" role="region" aria-labelledby="capabilities-heading">
+            <h2 id="capabilities-heading" class="h5">Analysis Capabilities</h2>
+            <ul class="list-group list-group-flush bg-transparent" aria-label="Analysis module capabilities">
+                <li class="list-group-item bg-transparent">
+                    <strong class="text-info">Fractal Drift Detection:</strong> 
+                    <span>Identifies recursion and metaphor reuse patterns</span>
+                    <span class="sr-description visually-hidden">This module analyzes how ideas and metaphors repeat and evolve throughout the text.</span>
+                </li>
+                <li class="list-group-item bg-transparent">
+                    <strong class="text-warning">Narrative Entropy:</strong> 
+                    <span>Measures semantic disorder over time</span>
+                    <span class="sr-description visually-hidden">This module measures how coherent or chaotic the narrative structure becomes as the text progresses.</span>
+                </li>
+                <li class="list-group-item bg-transparent">
+                    <strong class="text-success">Symbolic Density:</strong> 
+                    <span>Identifies symbol-heavy language and metaphor clusters</span>
+                    <span class="sr-description visually-hidden">This module detects how many symbols and metaphors are used and their concentration in different parts of the text.</span>
+                </li>
+                <li class="list-group-item bg-transparent">
+                    <strong class="text-danger">Echo Patterns:</strong> 
+                    <span>Detects repeated phrases that appear contextually distorted</span>
+                    <span class="sr-description visually-hidden">This module finds phrases that repeat but appear in different contexts, potentially indicating manipulation or confusion.</span>
+                </li>
+                <li class="list-group-item bg-transparent">
+                    <strong class="text-primary">Observer Simulation:</strong> 
+                    <span>Tests resonance response and feedback loop modeling</span>
+                    <span class="sr-description visually-hidden">This module examines how the text might affect readers emotionally and cognitively through feedback patterns.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}

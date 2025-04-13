@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}SST OSINT - Analysis Results{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">Field Distortion Analysis Results</h1>
+        
+        <div class="card bg-dark mb-4">
+            <div class="card-header">
+                <h2 class="h4 m-0">Field Classification: 
+                    <span class="text-{{ 'success' if results.field_classification == 'Stable Field' else 'warning' if results.field_classification == 'Distorted Field' else 'danger' }} academic-term" data-term="field-classification">
+                        {{ results.field_classification }}
+                        <span class="sr-description visually-hidden">
+                            {% if results.field_classification == "Stable Field" %}
+                                (This is a good result indicating minimal distortion)
+                            {% elif results.field_classification == "Distorted Field" %}
+                                (This indicates moderate distortion, potentially concerning)
+                            {% else %}
+                                (This is a critical result indicating severe distortion, potentially harmful)
+                            {% endif %}
+                        </span>
+                    </span>
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="h5 card-title">Field Metrics</h3>
+                        <table class="table table-dark" aria-label="Analysis metrics and values">
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row">Segments Analyzed</th>
+                                    <td>{{ results.num_segments }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span class="academic-term" data-term="entropy-score">
+                                            Mean Entropy
+                                        </span>
+                                    </th>
+                                    <td>{{ "%.4f"|format(results.narrative_entropy.mean_entropy) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span class="academic-term" data-term="fractal-recursion">
+                                            Recursion Score
+                                        </span>
+                                    </th>
+                                    <td>{{ "%.4f"|format(results.fractal_drift.recursion_score) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span class="academic-term" data-term="symbol-density">
+                                            Mean Symbol Density
+                                        </span>
+                                    </th>
+                                    <td>{{ "%.4f"|format(results.symbolic_density.mean_density) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span class="academic-term" data-term="echo-intensity">
+                                            Echo Pattern Count
+                                        </span>
+                                    </th>
+                                    <td>{{ results.echo_patterns.echo_count }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <h3 class="h5 card-title">Interpretation</h3>
+                        <div class="card bg-dark border-secondary mb-3">
+                            <div class="card-body">
+                                {% if results.field_classification == "Stable Field" %}
+                                    <ul>
+                                        <li>Narrative appears coherent with minimal distortion</li>
+                                        <li>Low risk of emotional manipulation or narrative warping</li>
+                                        <li>Standard communication patterns detected</li>
+                                    </ul>
+                                {% elif results.field_classification == "Distorted Field" %}
+                                    <ul>
+                                        <li>Moderate narrative distortion detected</li>
+                                        <li>Potential emotional manipulation present</li>
+                                        <li>Recommend closer analysis of high-entropy segments</li>
+                                    </ul>
+                                {% else %}
+                                    <ul class="text-danger" aria-live="polite">
+                                        <li>Severe narrative distortion detected</li>
+                                        <li>High probability of emotional manipulation</li>
+                                        <li>Recursive language patterns suggest coercive intent</li>
+                                        <li>ALERT: Narrative exhibits signs of trauma-based manipulation</li>
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h3 class="h5 m-0" id="entropy-heading">
+                            <span class="academic-term" data-term="entropy-score">Narrative Entropy</span>
+                            <i class="bi bi-info-circle chart-explanation" data-explanation="Entropy measures the complexity and unpredictability of information flow in the text. Sudden changes in entropy can indicate shifts in narrative control."></i>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Entropy measures the semantic disorder/incoherence in the narrative.</p>
+                        
+                        {% if results.narrative_entropy.high_entropy_segments %}
+                            <h4 class="h6" id="high-entropy-segments">High Entropy Segments</h4>
+                            <ul class="list-group list-group-flush bg-transparent" aria-labelledby="high-entropy-segments">
+                                {% for segment in results.narrative_entropy.high_entropy_segments %}
+                                    <li class="list-group-item bg-transparent">
+                                        Segment {{ segment.segment_index }}: 
+                                        Entropy {{ "%.4f"|format(segment.entropy) }}
+                                        <span class="sr-description visually-hidden">
+                                            (High entropy indicates possible manipulation or trauma markers in this segment)
+                                        </span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-muted" aria-live="polite">No high entropy segments detected.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h3 class="h5 m-0" id="symbolic-heading">
+                            <span class="academic-term" data-term="symbol-density">Symbolic Density</span>
+                            <i class="bi bi-info-circle chart-explanation" data-explanation="Symbol density quantifies the concentration of metaphorical language, emotional appeals, and archetypal patterns. High density areas can be hotspots for emotional manipulation."></i>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Symbol density reveals emotional loading and metaphorical patterns.</p>
+                        
+                        {% if results.symbolic_density.top_symbols %}
+                            <h4 class="h6" id="top-symbols">Top Symbolic Elements</h4>
+                            <div class="d-flex flex-wrap" role="list" aria-labelledby="top-symbols">
+                                {% for symbol in results.symbolic_density.top_symbols %}
+                                    <span class="badge bg-secondary m-1" role="listitem">{{ symbol }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p class="text-muted" aria-live="polite">No significant symbolic patterns detected.</p>
+                        {% endif %}
+                        
+                        {% if results.symbolic_density.emotional_blackholes %}
+                            <h4 class="h6 mt-3" id="emotional-blackholes">
+                                <span class="academic-term" data-term="entropy-collapse">Emotional Blackholes</span>
+                            </h4>
+                            <ul class="list-group list-group-flush bg-transparent" aria-labelledby="emotional-blackholes">
+                                {% for blackhole in results.symbolic_density.emotional_blackholes %}
+                                    <li class="list-group-item bg-transparent">
+                                        Segment {{ blackhole.segment_index }}: 
+                                        Density {{ "%.4f"|format(blackhole.density) }}
+                                        <span class="sr-description visually-hidden">
+                                            (Emotional blackholes are sections with extremely high symbolic density, often indicating emotional manipulation)
+                                        </span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h3 class="h5 m-0" id="echo-heading">
+                            <span class="academic-term" data-term="echo-intensity">Echo Patterns</span>
+                            <i class="bi bi-info-circle chart-explanation" data-explanation="Echo patterns identify repeated phrases in different contexts. When phrases appear repeatedly but with subtle contextual shifts, it can indicate cognitive conditioning."></i>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Echo patterns reveal repeated phrases with potential manipulative intent.</p>
+                        
+                        {% if results.echo_patterns.top_echoes %}
+                            <h4 class="h6" id="top-echoes">Top Echo Patterns</h4>
+                            <ul class="list-group list-group-flush bg-transparent" aria-labelledby="top-echoes">
+                                {% for echo, intensity in results.echo_patterns.top_echoes[:5] %}
+                                    <li class="list-group-item bg-transparent">
+                                        <q>{{ echo }}</q> - Intensity: {{ "%.2f"|format(intensity) }}
+                                        <span class="sr-description visually-hidden">
+                                            (Higher intensity indicates stronger potential for manipulation)
+                                        </span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-muted" aria-live="polite">No significant echo patterns detected.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h3 class="h5 m-0" id="fractal-heading">
+                            <span class="academic-term" data-term="fractal-recursion">Fractal Drift</span>
+                            <i class="bi bi-info-circle chart-explanation" data-explanation="Fractal Drift measures self-similar patterns across multiple scales of communication, identifying recursive metaphors and self-reinforcing narratives."></i>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Fractal drift identifies recursion and metaphor reuse patterns.</p>
+                        
+                        <div class="d-flex justify-content-between" aria-live="polite">
+                            <div>
+                                <strong id="recursion-score">Recursion Score:</strong> 
+                                <span aria-labelledby="recursion-score">{{ "%.4f"|format(results.fractal_drift.recursion_score) }}</span>
+                            </div>
+                            <div>
+                                <strong id="narrative-stability">
+                                    <span class="academic-term" data-term="narrative-recursion">Narrative Stability:</span>
+                                </strong>
+                                <span aria-labelledby="narrative-stability">{{ "%.4f"|format(results.fractal_drift.narrative_stability) }}</span>
+                            </div>
+                        </div>
+                        
+                        {% if results.fractal_drift.fractal_signatures %}
+                            <h4 class="h6 mt-3" id="significant-patterns">Significant Patterns</h4>
+                            <ul class="list-group list-group-flush bg-transparent" aria-labelledby="significant-patterns">
+                                {% for pattern in results.fractal_drift.fractal_signatures[:3] %}
+                                    <li class="list-group-item bg-transparent">
+                                        Segments {{ pattern.segment_pair[0] }} ↔ {{ pattern.segment_pair[1] }}: 
+                                        Similarity {{ "%.2f"|format(pattern.similarity) }}
+                                        <span class="sr-description visually-hidden">
+                                            (Higher similarity between distant segments can indicate recursive patterns)
+                                        </span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mb-5">
+            <a href="{{ url_for('analyze') }}" class="btn btn-primary px-4 me-2" aria-label="Start a new text analysis">
+                New Analysis
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
